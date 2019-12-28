@@ -1,0 +1,93 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "924585",
+      "name": "video",
+      "font_class": "video",
+      "unicode": "e977",
+      "unicode_decimal": 59767
+    },
+    {
+      "icon_id": "4114435",
+      "name": "Video",
+      "font_class": "Video",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "11134481",
+      "name": "多选框",
+      "font_class": "duoxuankuang",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "11476984",
+      "name": "Music 音乐 app图标03",
+      "font_class": "icon-test",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "11476988",
+      "name": "camera相机app图标",
+      "font_class": "icon-test1",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "11476994",
+      "name": "Notepad  记事本 备忘录app图标10",
+      "font_class": "icon-test2",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "11476996",
+      "name": "game 游戏应用中心app图标",
+      "font_class": "icon-test3",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "11477001",
+      "name": "video 录像app图标",
+      "font_class": "icon-test4",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "11477003",
+      "name": "reading书籍小说阅读app图标",
+      "font_class": "icon-test5",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "11607863",
+      "name": "展开",
+      "font_class": "zhankai",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "12550412",
+      "name": "左对齐",
+      "font_class": "zuoduiqi",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "12550673",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    }
+  ]
+}
