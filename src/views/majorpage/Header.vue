@@ -1,13 +1,14 @@
 <template>
   <div class="header">
+    <!-- 主页上方的导航栏 -->
     <div class="left">
       <span class="iconfont icon-zuoduiqi"></span>
     </div>
     <div class="content">
-      <span @click="mylink">我的</span>
-      <span class="optWeight" @click="discoverlink">发现</span>
-      <span @click="yuncunlink">云村</span>
-      <span @click="videolink">视频</span>
+      <span :class="{'optWeight': ismy}" @click="mylink">我的</span>
+      <span :class="{'optWeight': isdiscover}" @click="discoverlink">发现</span>
+      <span :class="{'optWeight': isyuncun}" @click="yuncunlink">云村</span>
+      <span :class="{'optWeight': isvideo}" @click="videolink">视频</span>
     </div>
     <div class="right">
       <span class="iconfont icon-sousuo"></span>
@@ -19,17 +20,33 @@
 
   export default {
     name: 'Header',
+    data(){
+      return {
+        ismy: false,
+        isdiscover: true,
+        isyuncun:false,
+        isvideo: false
+      }
+    },
     methods: {
       mylink(){
+          this.ismy = this.isdiscover = this.isyuncun = this.isvideo = false;
+          this.ismy = true;
           this.$router.push('/mymain')     
       },
       discoverlink(){
+          this.ismy = this.isdiscover = this.isyuncun = this.isvideo = false;
+          this.isdiscover = true;
           this.$router.push('/discover')
       } ,
       yuncunlink(){
+          this.ismy = this.isdiscover = this.isyuncun = this.isvideo = false;
+          this.isyuncun = true;
           this.$router.push('/yuncun')
       },
       videolink(){
+          this.ismy = this.isdiscover = this.isyuncun = this.isvideo = false;
+          this.isvideo = true;
           this.$router.push('/shipin')
       }
     }}
@@ -41,6 +58,11 @@
     background: #fff;
     display: flex;
     padding: 0 15px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999;
   }
   .header .left , .header .right {
     width: 40px;

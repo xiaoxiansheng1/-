@@ -1,16 +1,26 @@
 <template>
+  <!--每日推荐显示页面  -->
   <div class="recommend">
-    <div class="header_img">
-      <img :src="headerimg" alt="">
+    <!-- 返回箭头 -->
+    <div class="backarrow">
+      <span class="iconfont icon-fanhui" @click="back"></span>
+      <span>每日推荐</span>
     </div>
-    <div class="songslist">
+    <!-- 头部图片 -->
+    <div class="header_img">
+      <img :src="headerimg" alt="" :class="{'imgfilter': isfilter}">
+    </div>
+    <!-- 歌单列表 -->
+    <div :class="['songslist',{'fix': isfix}]">
+      <span class="circum_left"></span>
+      <span class="circum_right"></span>
       <div class="songslist_header">
         <span class="left"> <i class="iconfont icon-video"></i> 播放全部</span>
         <span class="right"> <i class="iconfont icon-duoxuankuang"></i> 多选</span>
       </div>
       <div v-for="item in recomData" :key="item.id" class="songslist_item">
         <div class="songimg">
-          <img :src="item.picUrl" alt="" width="40px">
+          <img :src="item.picUrl" alt="" width="40px" >
         </div>
         <div class="songcontent">
           <p>{{item.name}}</p>
@@ -28,26 +38,44 @@
 </template>
 
 <script>
-  import {request} from 'network/request.js'
+  import {recommdata} from 'network/fzrequest.js'
   export default {
     name: 'recommend',
     data(){
       return {
         headerimg: null,
         recomData: null,
+        // 图片是否模糊
+        isfilter: false,
+        isfix: false
       }
     },
     created(){
-      this.getRecommendData();
+      this.getRecommendData()
+    },
+    mounted () {
+        window.addEventListener('scroll', this.pagescroll)
     },
     methods:{
+      // 获取页面数据
       getRecommendData(){
-        request({
-          url: '/personalized/newsong'
-        }).then(res => {
+        recommdata().then(res => {
           this.recomData = res.result;
           this.headerimg = res.result[0].picUrl
         })
+      },
+      pagescroll(e){
+        const scrolly = document.documentElement.scrollTop;
+        if(scrolly>48) {
+          this.isfilter  = true
+          this.isfix = true
+        }else {
+          this.isfilter  = false
+          this.isfix = false
+        }
+      },
+      back(){
+        history.back()
       }
     }
   }
@@ -55,8 +83,19 @@
 
 <style scoped>
  .recommend {
-   position: relative;
    box-shadow: 0 -1px 1px #aaa;
+ }
+ .recommend .backarrow {
+   position: fixed;
+   left: 14px;
+   top: 13px;
+   color: #fff;
+   font-size: 20px;
+   z-index: 9999999999;
+ }
+ .recommend .backarrow span:nth-child(1){
+   margin-right: 10px;
+   font-size: 18px;
  }
  .header_img {
    width: 100%;
@@ -65,20 +104,51 @@
  .header_img  img{
    width: 100%;
    height: 150px;
+ } 
+ .imgfilter {
+  /* 图片变模糊  */
+   filter: blur(15px);
+   -webkit-filter: blur(15px);
  }
  .recommend .songslist {
-   position: absolute;
-   left: 0;
-   top: 140px;
+   position: relative;
+   transform: translateY(-20px);
    width: 100%;
    background: #fff;
    border-radius: 10px 10px 0 0 ;
+ }
+ .fix {
+   margin-top: 48x;
+ }
+ .recommend .songslist .circum_left ,.recommend .songslist .circum_right {
+   position: absolute;
+   top: 2px;
+   height: 10px;
+   width: 10px;
+   background: #e1e1df;
+   border-radius: 100%;
+ }
+ .recommend .songslist .circum_left {
+   left: 50px;
+ }
+ .recommend .songslist .circum_left::after ,.recommend .songslist .circum_right::after{
+   content: '';
+   position: absolute;
+   width: 4px;
+   height: 15px;
+   background: #fff;
+   border-radius: 2px;
+   left: 3px;
+   top: -8px;
+ }
+ .recommend .songslist .circum_right {
+   right: 50px;
  }
  .songslist_header {
    height: 30px;
    line-height: 30px;
    padding: 0 15px;
-   margin-top: 15px;
+   padding-top: 15px;
   color: #4a4a4a;
  }
  .songslist_header span:nth-child(1) {
@@ -93,6 +163,7 @@
    display: flex;
    padding: 10px 10px;
    width: 100%;
+   box-sizing: border-box;
  }
  .songslist .songslist_item .songimg img{
    border-radius: 5px;

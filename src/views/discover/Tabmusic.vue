@@ -38,7 +38,7 @@
   .tabmusic {
     height: 100px;
     display: flex;
-    border-bottom: 1px solid #f8f8f8;
+    border-bottom: 1px solid #f1f1f1;
   }
   .tabmusic div {
     flex: 1;
