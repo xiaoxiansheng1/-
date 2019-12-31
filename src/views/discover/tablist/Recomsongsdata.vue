@@ -1,17 +1,15 @@
 <template>
-  <div class="mymain">
-    <h2>傻逼</h2>
+  <div class="songsvideo">
+     <h2>播放页面</h2>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Mymain'
+    
   }
 </script>
 
 <style scoped>
- .mymain {
-   margin-top: 44px;
- }
+
 </style>

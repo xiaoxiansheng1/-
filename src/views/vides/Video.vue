@@ -11,5 +11,7 @@
 </script>
 
 <style scoped>
-
+ .discover {
+   margin-top: 44px;
+ }
 </style>

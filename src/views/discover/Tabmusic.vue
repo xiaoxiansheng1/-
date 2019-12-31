@@ -26,9 +26,14 @@
 <script>
   export default {
     name: 'Tabmusic',
+    data(){
+      return {
+        
+      }
+    },
     methods: {
       recommendlink(){
-        this.$router.push('/recommend');
+        this.$emit('recommendLink')
       }
     }
   }

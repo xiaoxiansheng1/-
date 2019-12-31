@@ -27,7 +27,7 @@ import {swiper} from 'network/fzrequest.js'
     name: 'Swiperbanner',
     data(){
       return {
-        bannerdata: null,
+        bannerdata: [],
         index: 0,
         width: 0,
         mobile: '',

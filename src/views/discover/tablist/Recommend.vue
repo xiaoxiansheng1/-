@@ -1,40 +1,40 @@
 <template>
   <!--每日推荐显示页面  -->
-  <div class="recommend">
-    <!-- 返回箭头 -->
-    <div class="backarrow">
-      <span class="iconfont icon-fanhui" @click="back"></span>
-      <span>每日推荐</span>
-    </div>
-    <!-- 头部图片 -->
-    <div class="header_img">
-      <img :src="headerimg" alt="" :class="{'imgfilter': isfilter}">
-    </div>
-    <!-- 歌单列表 -->
-    <div :class="['songslist',{'fix': isfix}]">
-      <span class="circum_left"></span>
-      <span class="circum_right"></span>
-      <div class="songslist_header">
-        <span class="left"> <i class="iconfont icon-video"></i> 播放全部</span>
-        <span class="right"> <i class="iconfont icon-duoxuankuang"></i> 多选</span>
+    <div class="recommend">
+      <!-- 返回箭头 -->
+      <div class="backarrow">
+        <span class="iconfont icon-fanhui" @click="back"></span>
+        <span>每日推荐</span>
       </div>
-      <div v-for="item in recomData" :key="item.id" class="songslist_item">
-        <div class="songimg">
-          <img :src="item.picUrl" alt="" width="40px" >
+      <!-- 头部图片 -->
+      <div class="header_img">
+        <img :src="headerimg" alt="" :class="{'imgfilter': isfilter}">
+      </div>
+      <!-- 歌单列表 -->
+      <div :class="['songslist',{'fix': isfix}]">
+        <span class="circum_left"></span>
+        <span class="circum_right"></span>
+        <div class="songslist_header">
+          <span class="left"> <i class="iconfont icon-video"></i> 播放全部</span>
+          <span class="right"> <i class="iconfont icon-duoxuankuang"></i> 多选</span>
         </div>
-        <div class="songcontent">
-          <p>{{item.name}}</p>
-          <p>{{item.song.artists[0].name}}</p>
-        </div>
-        <div class="songcontrol">
-          <span class="iconfont icon-Video"></span>
-        </div>
-        <div class="songmore">
-          <span class="iconfont icon-zhankai"></span>
+        <div v-for="item in recomData" :key="item.id" class="songslist_item"  @click=songsOn(item)>
+          <div class="songimg">
+            <img :src="item.picUrl" alt="" width="40px" >
+          </div>
+          <div class="songcontent">
+            <p>{{item.name}}</p>
+            <p>{{item.song.artists[0].name}}</p>
+          </div>
+          <div class="songcontrol">
+            <span class="iconfont icon-Video"></span>
+          </div>
+          <div class="songmore">
+            <span class="iconfont icon-zhankai"></span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div>     
 </template>
 
 <script>
@@ -75,13 +75,22 @@
         }
       },
       back(){
-        history.back()
+        this.$router.back()
+      },
+      songsOn(item){
+        this.$router.push('/songon/'+123)
       }
     }
   }
 </script>
 
 <style scoped>
+ .slider-enter-active,.slider-leave-active{
+   transition: all .5s
+ }
+ .slider-enter,.slider-leave-to {
+   transform: translate3d(-100%,0,0)
+ }
  .recommend {
    box-shadow: 0 -1px 1px #aaa;
  }
@@ -91,7 +100,7 @@
    top: 13px;
    color: #fff;
    font-size: 20px;
-   z-index: 9999999999;
+   z-index: 9999;
  }
  .recommend .backarrow span:nth-child(1){
    margin-right: 10px;
@@ -107,8 +116,8 @@
  } 
  .imgfilter {
   /* 图片变模糊  */
-   filter: blur(15px);
-   -webkit-filter: blur(15px);
+   filter: blur(5px);
+   -webkit-filter: blur(5px);
  }
  .recommend .songslist {
    position: relative;
@@ -201,4 +210,11 @@
    font-size: 23px;
    color: #b5b5b5;
  }
+ /* .slider-enter-active , .slider-leave-active {
+   transition: all 0.5s;
+ }
+ .slider-enter , .slider-leave-to {
+   transform: translate3d(100%,0,0)
+ } */
+ 
 </style>

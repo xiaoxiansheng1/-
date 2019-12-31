@@ -29,7 +29,6 @@ import {songsdata} from 'network/fzrequest.js'
       getsongsdata(){
         songsdata().then(res => {
           this.songslistdata = res.result
-          console.log(this.songslistdata)
         })
       }
     }

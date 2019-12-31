@@ -49,7 +49,8 @@
           this.isvideo = true;
           this.$router.push('/shipin')
       }
-    }}
+    }
+  }
 </script>
 
 <style  scoped>
@@ -57,12 +58,12 @@
     height: 44px;
     background: #fff;
     display: flex;
-    padding: 0 15px;
     position: fixed;
     width: 100%;
     left: 0;
     top: 0;
-    z-index: 9999;
+    z-index: 99;
+    position: absolute;
   }
   .header .left , .header .right {
     width: 40px;
@@ -72,7 +73,7 @@
     color: #222;
   }
   .header .right {
-    text-align: right;
+    text-align: left;
   }
   .header .content {
     flex: 1;
