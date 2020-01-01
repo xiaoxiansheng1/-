@@ -6,7 +6,7 @@ const Mymain = () => import('views/my/Mymain')
 const Video = () => import('views/vides/Video')
 const Yuncun = () => import('views/yuncun/Yuncun')
 const Recommend = () => import('views/discover/tablist/Recommend')
-const Songson= () => import('views/discover/tablist/Recomsongsdata')
+const Audiopage= () => import('views/discover/tablist/Audiopage')
 
 Vue.use(VueRouter)
 
@@ -17,7 +17,7 @@ const routes = [
   { path: '/shipin', component: Video  },
   { path: '/yuncun', component: Yuncun  },
   { path: '/recommend', component: Recommend},
-  { path: '/songon/:id' ,component: Songson}
+  { path: '/songon/:id' ,component: Audiopage}
 ]
 
 const router = new VueRouter({

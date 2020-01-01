@@ -78,7 +78,7 @@
         this.$router.back()
       },
       songsOn(item){
-        this.$router.push('/songon/'+123)
+        this.$router.push('/songon/'+item.id)
       }
     }
   }
