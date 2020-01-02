@@ -11,7 +11,5 @@
 </script>
 
 <style scoped>
- .yuncun {
-   margin-top: 44px;
- }
+
 </style>

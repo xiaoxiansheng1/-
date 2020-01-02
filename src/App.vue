@@ -1,9 +1,7 @@
 <template>
   <div id="app">
    <Header v-if="isShow"></Header>
-   <transition name="slider">
       <router-view></router-view>
-   </transition>
   </div>
 </template>
 
@@ -35,7 +33,7 @@ export default {
   @import './assets/css/base.css';
   @import 'assets/css/iconfont/iconfont.css';
 
-.slider{
+/* .slider{
   position: relative;
   left:0;
   right: 0;
@@ -58,5 +56,5 @@ export default {
 .slider-leave-active {
   transition: all 0.7s ease;
   background-color: white;
-}
+} */
 </style>

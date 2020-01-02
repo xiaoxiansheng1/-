@@ -1,7 +1,7 @@
 <template>
   <div class="discover">
     <Swiper></Swiper>
-    <Tabmusic @recommendLink="recommendLink"></Tabmusic>
+    <Tabmusic @recommendLink="recommendLink" @songslink="songslink"></Tabmusic>
     <Songslist></Songslist>
   </div>
 </template>
@@ -22,6 +22,9 @@ import Songslist from './Songslist.vue'
         this.$router.push({
           path: '/recommend'
         })
+      },
+      songslink(){
+        this.$router.push('/songs')
       }
     }
   }

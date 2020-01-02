@@ -58,12 +58,8 @@
     height: 44px;
     background: #fff;
     display: flex;
-    position: fixed;
     width: 100%;
-    left: 0;
-    top: 0;
     z-index: 99;
-    position: absolute;
   }
   .header .left , .header .right {
     width: 40px;
@@ -71,6 +67,9 @@
     font-size: 16px;
     font-weight: 600;
     color: #222;
+  }
+  .header .left {
+    text-align: right;
   }
   .header .right {
     text-align: left;

@@ -11,7 +11,4 @@
 </script>
 
 <style scoped>
- .mymain {
-   margin-top: 44px;
- }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="discover">
+  <div class="video">
     <h2>视频页面</h2>
   </div>
 </template>
@@ -11,7 +11,5 @@
 </script>
 
 <style scoped>
- .discover {
-   margin-top: 44px;
- }
+ 
 </style>

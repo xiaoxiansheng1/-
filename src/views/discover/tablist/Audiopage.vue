@@ -89,6 +89,7 @@ import {request} from 'network/request.js'
     width: 100vm;
     display: flex;
     flex-direction:column;
+    overflow: hidden;
   }
   .bacimg {
     position: absolute;

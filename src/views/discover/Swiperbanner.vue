@@ -128,7 +128,6 @@ import {swiper} from 'network/fzrequest.js'
    width: 100%;
    overflow: hidden;
    position: relative;
-   margin-top: 44px;
  }
  .swiper .suoyin {
    position: absolute;

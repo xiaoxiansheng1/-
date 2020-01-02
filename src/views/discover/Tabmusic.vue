@@ -4,7 +4,7 @@
       <span class="iconfont icon-icon-test1"></span>
       <p>每日推荐</p>
     </div>
-    <div>
+    <div @click="songslink">
       <span class="iconfont icon-icon-test2"></span>
       <p>歌单</p>
     </div>
@@ -34,6 +34,9 @@
     methods: {
       recommendlink(){
         this.$emit('recommendLink')
+      },
+      songslink(){
+        this.$emit('songslink')
       }
     }
   }
