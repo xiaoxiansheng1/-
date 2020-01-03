@@ -22,6 +22,7 @@ const Liuxing= () => import('views/discover/playsongslist/Liuxing')
 const Mingyao= () => import('views/discover/playsongslist/Mingyao')
 const Dianzi= () => import('views/discover/playsongslist/Dianzi')
 const Qingyinyue= () => import('views/discover/playsongslist/Qingyinyue')
+const Songsdatile= () => import('views/discover/playsongslist/Songslistdatile')
 
 
 Vue.use(VueRouter)
@@ -44,7 +45,8 @@ const routes = [
     { path: 'mingyao', component: Mingyao},
     { path: 'dianzi', component: Dianzi},
     { path: 'qingyinyue', component: Qingyinyue}
-  ]}
+  ]},
+  { path: '/songsdatile/:iid', component: Songsdatile}
 ]
 
 const router = new VueRouter({

@@ -1,6 +1,6 @@
 <template>
   <div class="songslist">
-    <div v-for="(item,index) in playlists" :key="index" class="songsitem">
+    <div v-for="(item,index) in playlists" :key="index" class="songsitem" @click="songslistdatile(item)">
       <div class="songsimg">
         <img :src="item.coverImgUrl" alt="">
       </div>
@@ -18,6 +18,11 @@
         default(){
           return 
         }
+      }
+    },
+    methods: {
+      songslistdatile(item) {
+        this.$router.push('/songsdatile/'+item.id)
       }
     }
   }

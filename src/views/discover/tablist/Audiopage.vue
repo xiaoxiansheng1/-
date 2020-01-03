@@ -60,6 +60,7 @@ import {request} from 'network/request.js'
     created(){
       this.songId = this.$route.params.id
       this.getSongDatile()
+      console.log(this.songDatile)
     },
     methods: {
       clickToggle(){

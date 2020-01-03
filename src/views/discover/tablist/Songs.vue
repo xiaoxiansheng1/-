@@ -1,5 +1,5 @@
 <template>
-  <div class="songs">
+  <div class="songs" ref="backcolor">
     <!-- 头部 -->
     <div class="header">
       <span class="iconfont icon-fanhui" @click="back"></span>
@@ -63,11 +63,20 @@
          //tab栏是否触摸
          isMove: false,
         //  最大移动的宽度
-         maxMoveWidth: 0
+         maxMoveWidth: 0,
+         //背景颜色
+         backcolor:[
+           {s: '#dcd3d6',e: '#fefaf7'},
+           {s: '#c0cad2',e: '#dadbdf'},
+           {s: '#c3def5',e: '#ebebe6'},
+           {s: '#bdc8d5',e: '#ece7eb'},
+           {s: '#fb9fa0',e: '#e8d8d7'}
+         ]
        }
     },
     mounted(){
       this.maxMoveWidth = this.$refs.tabnav.offsetWidth - window.innerWidth
+      // this.$refs.backcolor.style.background = ``
     },
     methods: {
       back(){
@@ -76,6 +85,11 @@
       tabnavlink(item,index){
         this.$router.push('/songs'+item.link)
         this.currentIndex = index
+        // let temp = index
+        if(index>=5){
+         index = index-5
+        }
+        this.$refs.backcolor.style.background = `linear-gradient(to bottom,${this.backcolor[index].s},${this.backcolor[index].e})`
       },
       // tab栏触动滑动
       start(e){
@@ -134,7 +148,7 @@
     text-align: center;
     line-height: 45px;
     color: #333;
-    text-shadow: 0 0 2px #f1f1f1;
+    text-shadow: 0 0 1px #f1f1f1;
     box-sizing: border-box;
     
   }
