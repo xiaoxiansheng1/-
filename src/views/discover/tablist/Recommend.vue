@@ -11,7 +11,7 @@
         <img :src="headerimg" alt="" :class="{'imgfilter': isfilter}">
       </div>
       <!-- 歌单列表 -->
-      <div :class="['songslist',{'fix': isfix}]">
+      <div :class="['songslist']">
         <span class="circum_left"></span>
         <span class="circum_right"></span>
         <div class="songslist_header">
@@ -125,9 +125,6 @@
    width: 100%;
    background: #fff;
    border-radius: 10px 10px 0 0 ;
- }
- .fix {
-   margin-top: 48x;
  }
  .recommend .songslist .circum_left ,.recommend .songslist .circum_right {
    position: absolute;

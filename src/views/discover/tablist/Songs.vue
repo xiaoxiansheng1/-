@@ -67,7 +67,7 @@
        }
     },
     mounted(){
-      this.maxMoveWidth = this.$refs.tabnav.offsetWidth-window.innerWidth
+      this.maxMoveWidth = this.$refs.tabnav.offsetWidth - window.innerWidth
     },
     methods: {
       back(){
@@ -80,7 +80,6 @@
       // tab栏触动滑动
       start(e){
        this.startX = e.targetTouches[0].pageX
-       console.log(this.maxMoveWidth)
       },
       move(e){
         this.moveX = e.targetTouches[0].pageX - this.startX
