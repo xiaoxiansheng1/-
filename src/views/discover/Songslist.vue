@@ -5,7 +5,7 @@
       <span class="right mark">歌单广场</span>
     </div>
     <div class="catagory">
-      <div class="catagorylist" v-for="(item,index) in songslistdata" :key="index">
+      <div class="catagorylist" v-for="(item,index) in songslistdata" :key="index" @click="songlistdatile(item.id)">
         <img :src="item.picUrl" alt="">
         <p>{{item.name}}</p>
       </div>
@@ -30,6 +30,9 @@ import {songsdata} from 'network/fzrequest.js'
         songsdata().then(res => {
           this.songslistdata = res.result
         })
+      },
+      songlistdatile(id) {
+        this.$router.push('/songsdatile/'+id)
       }
     }
   }

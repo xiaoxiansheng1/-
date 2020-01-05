@@ -17,9 +17,11 @@
           <span class="iconfont icon-Video"></span>
           <span class="bofang">播放全部 <span class="in">(共{{songnumber+1}}首)</span></span>
     </div>
+    <!-- 歌单封面 -->
+    <Songcover class="songcover" v-show="iscover"  :coverimg="songimgurl" :songname="songname" :songtags="songtags" :songdes="songdes" @offevent="offevent"></Songcover>
     <div class="imgheader" ref="imgref">
       <div class="imgcontent">
-        <div class="img">
+        <div class="img" @click="showCover">
           <img :src="songimgurl" alt="" width="90%">
         </div>
         <div class="des">
@@ -77,19 +79,26 @@
 <script>
   import {request} from 'network/request.js'
   import BScroll from 'better-scroll'
+  import Songcover from 'views/discover/songlistcover/Songcover.vue'
   export default {
     name: 'Songslistdatile',
     data(){
       return {
+        song: null,
         songid: null,
         songdata: null,
         songimgurl: null,
         songdes: null,
         songname: null,
         songnumber: 0,
+        songtags: null,
         scrollY: 0,
-        heig: 0
+        heig: 0,
+        iscover: false
       }
+    },
+    components: {
+      Songcover
     },
     created(){
       this.songid = this.$route.params.iid
@@ -111,6 +120,7 @@
         request({
         url: `/playlist/detail?id=${this.songid}`
       }).then(res => {
+        this.songtags = res.playlist.tags
         this.songdata = res.playlist.tracks
         this.songimgurl = res.playlist.coverImgUrl
         this.songdes = res.playlist.description
@@ -123,6 +133,12 @@
       },
       scroll(pos){
         console.log(pos)
+      },
+      showCover(){
+        this.iscover = true
+      },
+      offevent(bol) {
+        this.iscover = false
       }
     },
     watch:{
@@ -150,12 +166,13 @@
 </script>
 
 <style  scoped>
-  .listdatile {
+  .songcover {
     position: fixed;
-    top: 0;
     left: 0;
+    top: 0;
+    bottom: 0;
     right: 0;
-    bottom: 0
+    z-index: 20
   }
   .imgheader {
     position: relative;
@@ -305,6 +322,7 @@
     font-size: 18px;
     width: 100%;
     z-index:10;
+    border-bottom: 1px solid #f1f1f1;
     background: #fff;
     display: none;
   }
@@ -331,7 +349,6 @@
     width: 100%;
     background: #fff;
     bottom: 0;
-    border-radius: 15px 15px 0 0;
   }
   .songslist .maincontent .mainheader{
     height: 60px;
@@ -343,7 +360,7 @@
     content: '';
     position: absolute;
     left: 0;
-    top: -20px;
+    top: -19px;
     height: 20px;
     width: 100%;
     background: #fff;
@@ -380,9 +397,23 @@
   .songslist .maincontent .songslists .songsname .name {
     margin-bottom: 7px;
     font-size: 16px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
   .songslist .maincontent .songslists .songsname .bom {
     color: #929292;
     font-size: 13px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 </style>
